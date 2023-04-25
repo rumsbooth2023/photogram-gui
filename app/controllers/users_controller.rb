@@ -8,10 +8,8 @@ class UsersController < ApplicationController
   end
 
   def user_details
-    @user_name = params.fetch("an_id")
-    @details = User.where({ :username => @user_name}).at(0)
-
-    @photos = Photo.where({ :owner_id => @details.id})
+    @url_username = params.fetch("an_id")
+    @the_user = User.where({ :username => @url_username}).at(0)
 
     render({ :template => "user_templates/user_details.html.erb" })
   end
