@@ -1,1 +1,37 @@
 <h1><%= @details.username%></h1>
+
+<dl>
+  <dt>ID</dt>
+  <dd><%= @details.id%></dd>
+
+  <dt>Edit user</dt>
+  <dd>
+    <form action="/update_user/<%= @details.id%>" >
+      <label for="browser_username">Username</label>
+      <input id="browser_username" type="text" name="input_username" placeholder="Enter a username..." value="<%= @details.username%>">
+
+      <button>Update user</button>
+    </form>
+  </dd>
+</dl>
+
+<h2>Own photos (<%= @details%>)</h2>
+
+<table border="1">
+<th> Image </th>
+<th> Owner </th>
+<th> Caption </th>
+<th> Posted </th>
+<th> Details </th>
+
+<% @photos.each do |a_thing| %>
+<tr>
+  <td> <img src= "<%= @photos.image %>" style="width:250px;"> </td>
+  <td><%= a_thing.id%></td>
+  <td>
+    <a href = "/photos/<%= a_thing.id%>">
+    Show Details
+    </a>
+  </td>
+  </tr>
+<% end %>
