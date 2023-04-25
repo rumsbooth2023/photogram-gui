@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get("/users/:an_id", { :controller => "users", :action => "user_details" })
 
+  get("/insert_user_record/", { :controller => "users", :action => "create_user" })
+  
   get("/photos", { :controller => "photos", :action => "index" })
 
   get("/photos/:an_id", { :controller => "photos", :action => "photo_details" })
